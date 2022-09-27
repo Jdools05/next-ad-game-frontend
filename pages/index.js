@@ -1,23 +1,22 @@
 import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Leaderboard from "@components/Leaderboard";
+import Navbar from "@components/Navbar";
 
 export default function Home() {
     return (
-        <div className="container">
-            <Head>
-                <title>Next.js Starter!</title>
-                <link rel="icon" href="/favicon.ico"/>
-            </Head>
+        <div>
+            <Navbar/>
+            <div className="container">
+                <Head>
+                    <title>Next.js Starter!</title>
+                    <link rel="icon" href="/favicon.ico"/>
+                </Head>
 
-            <main>
-                <Header title="Welcome to my app!"/>
-                <p className="description">
-                    Get started by editing <code>pages/index.js</code>
-                </p>
-            </main>
-
-            <Footer/>
+                <Leaderboard data={[{name: "HI", score: 10}, {name: "Frank", score: 11}, {name: "James", score: 1}, {
+                    name: "Bob",
+                    score: 10
+                }]}/>
+            </div>
         </div>
-    )
+    );
 }
