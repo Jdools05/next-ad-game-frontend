@@ -1,19 +1,22 @@
-import type { NextRequest } from 'next/server'
+import type {NextRequest} from 'next/server'
 
 export const config = {
     runtime: 'experimental-edge',
 }
 
 export default async function handler(req: NextRequest) {
-    return new Response(
-        JSON.stringify({
-            name: 'Jim Halpert',
-        }),
-        {
-            status: 200,
+    try {
+        const response = await fetch('http://localhost:8080/j_security_check', {
+            method: 'POST',
             headers: {
-                'content-type': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+
             },
-        }
-    )
+            body: `j_username=admin&j_password=admin`,
+        });
+        console.log(response);
+    } catch (error) {
+        console.error(error);
+    }
+   return {};
 }

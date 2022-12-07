@@ -8,6 +8,7 @@ export default function Leaderboard({data}) {
     data = data.sort((a, b) => b.score - a.score);
     return (
         <table className="table table-striped">
+
             <thead>
             <tr key="thread">
                 <th scope="col" key="Rank">Rank</th>
